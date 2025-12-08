@@ -42,10 +42,10 @@ def generate_code():
 
 def open_chest(chest):
     if chest == "обычный":
-        return random.choice([200000, 300000, 400000])
+        return random.choice([200000, 300000, 400000])[45, 35, 20])[0]   
 
     if chest == "снежный":
-        return random.choice([600000, 700000, 800000])
+        return random.choice([600000, 700000, 800000], weights=[45, 35, 20])[0]    
 
     if chest == "секретный":
         return random.choices([100000, 1000000], weights=[80, 20])[0]
@@ -78,7 +78,7 @@ for event in longpoll.listen():
             code = generate_code()
             CODES[code] = chest_type   # ← САМЫЙ ВАЖНЫЙ МОМЕНТ !!!
 
-            send(uid, f"✔ Код создан!\nКод: {code}\nСундук: {chest_type}")
+            send(uid, f"✔ Код создан!\nКод: {code}\nСундук: {chest_type}\nКод работает определенное кол-во времени, при ошибке писать Тому")
             continue
 
         # ========================
@@ -97,7 +97,7 @@ for event in longpoll.listen():
 
             reward = open_chest(chest)
 
-            send(uid, f"🎉 Вам выпало: {reward:,}, Бедный Том :_)".replace(",", " "))
+            send(uid, f"🎉 Вам выпало: {reward:,}, поздравляю!".replace(",", " "))
 
             notify_admin(f"Пользователь vk.com/id{uid} открыл {chest} — выпало {reward:,}".replace(",", " "))
 
@@ -107,4 +107,4 @@ for event in longpoll.listen():
         # ========================
         #   КОД НЕ НАЙДЕН
         # ========================
-        send(uid, "Введите код сундука 🔐")
+        send(uid, "Просим Тома код сундука 🔐")
