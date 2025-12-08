@@ -99,7 +99,7 @@ for event in longpoll.listen():
 
             send(uid, f"🎉 Вам выпало: {reward:,}, поздравляю!".replace(",", " "))
 
-            notify_admin(f"Пользователь vk.com/id{uid} открыл {chest} — выпало {reward:,}".replace(",", " "))
+            notify_admin(f"Пользователь vk.com/id{uid} открыл {chest}, выпало {reward:,}".replace(",", " "))
 
             del CODES[msg.upper()]  # одноразовый код
             continue
