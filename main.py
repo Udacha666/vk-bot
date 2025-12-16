@@ -48,7 +48,7 @@ def open_chest(chest):
         return random.choice([600000, 700000, 800000], weights=[45, 35, 20])[0]    
 
     if chest == "секретный":
-        return random.choices([100000, 1000000], weights=[70, 30])[0]
+        return random.choices([100000, 1000000], weights=[60, 40])[0]
 
 
 print("Бот запущен!")
